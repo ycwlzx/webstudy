@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style> 
+    html,body{
+              height: 100%;
+              width: 100%;
+              margin: 0;
+             padding: 0;
+             background: url('bg.jpg') no-repeat;
+             background-size: cover;
+             position: absolute;
+               overflow: hidden;}
+        #text {
+                height: 90%; 
+                width: 100%;
+                display: flex;/*设置为弹性容器*/
+                align-items: center; /*定义div1的元素垂直居中*/
+        }  
+  </style>
+</head>
+
+<body>
+
+    <div id="text" align="center" >
+    </div>
+    <script>
+        let divTyping = document.getElementById('text')
+        let i = 0,
+            timer = 0,
+            str = '过程难熬,结局会好,金榜题名,祝你考上理想的学校'
+        function typing() {
+            if (i <= str.length) {
+                divTyping.innerHTML = str.slice(0, i++) + '_'
+                timer = setTimeout(typing, 200)
+            }
+            else {
+                divTyping.innerHTML = str
+                clearTimeout(timer)
+            }
+        }
+        
+        typing()
+        divTyping.style.fontSize = '160'
+    </script> 
+</body>
+
+</html>
